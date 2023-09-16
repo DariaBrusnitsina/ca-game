@@ -14,7 +14,7 @@ import { useGLTF } from '@react-three/drei'
 export function Forest(props) {
   const { nodes, materials } = useGLTF('/forest.gltf')
 
-  let number = Math.floor(Math.random() * (12 - 1) + 1)
+  // let number = Math.floor(Math.random() * (12 - 1) + 1)
 
   let forestArray = [
     {geometry: '_1_tree__1_tree_0', materials: '1_tree', rotation:[-Math.PI / 2, 0, 0], scale: [38.657, 38.657, 29.012]},
@@ -34,7 +34,7 @@ export function Forest(props) {
   return (
     <group {...props} dispose={null}>
       <group scale={0.01}>
-      <mesh geometry={nodes[forestArray[number].geometry].geometry} material={materials[forestArray[number].materials]} position={props.position} rotation={forestArray[number].rotation} scale={forestArray[number].scale} />
+      <mesh geometry={nodes[forestArray[props.number].geometry].geometry} material={materials[forestArray[props.number].materials]} position={props.position} rotation={forestArray[props.number].rotation} scale={forestArray[props.number].scale} />
 
         {/* <mesh geometry={nodes._1_tree__1_tree_0.geometry} material={materials['1_tree']} position={props.position} rotation={[-Math.PI / 2, 0, 0]} scale={[38.657, 38.657, 29.012]} />
         <mesh geometry={nodes._2_tree__2_tree_0.geometry} material={materials['2_tree']} position={[-252.286, -1.165, 2.407]} rotation={[-Math.PI / 2, 0, 0]} scale={22.623} />

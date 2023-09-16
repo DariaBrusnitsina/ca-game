@@ -1,7 +1,6 @@
 let cells = []
 export let forest = []
-export  let mushrooms = []
-export let cellsArray = []
+export let mushrooms = []
 
 const widthNum = 40
 const heightNum = 40
@@ -77,12 +76,14 @@ const heightNum = 40
       for(let j=0; j<cells[i].length; j++){
 
         if(!cells[i][j].aliveNow) {
-          forest.push([i, j])
+          let number = Math.floor(Math.random() * (12 - 1) + 1)
+          forest.push([i, j, number])
         }
 
         if (cells[i][j].aliveNow){
           if (i < widthNum/2 && j < widthNum/2 && Math.random()<0.3) {
-            mushrooms.push([i, j])
+            let number = Math.floor(Math.random() * (8 - 2) + 2)
+            mushrooms.push([i, j, number])
           }
         }
       }
@@ -97,6 +98,8 @@ const heightNum = 40
     }
   }
 
+
+export function createForest() {
     generateCells(widthNum, heightNum);
     cellIsAliveNextGeneration();
 
@@ -105,4 +108,6 @@ const heightNum = 40
       cellIsAliveNextGeneration();
     }
 
-drawCells()
+    drawCells()
+}
+createForest()

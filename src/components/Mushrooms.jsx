@@ -14,7 +14,7 @@ import { useGLTF } from '@react-three/drei'
 
 export function Mushrooms(props) {
 
-  let number = Math.floor(Math.random() * (8 - 2) + 2)
+  // let number = Math.floor(Math.random() * (8 - 2) + 2)
 	// const [removeCube] = useStore((state) => [state.addCube])
   let none = true
 
@@ -24,29 +24,13 @@ export function Mushrooms(props) {
     className={none ? 'none' : ''}
 
     style={{  display: 'none'}}
-    onClick={(e) => {
-      none = !none
-      e.stopPropagation()
-
-      console.log(this)
-      console.log(e.target)
-      // className.add('none')
-      // const [x, y, z] = Object.values(e.point).map(val => Math.ceil(val));
-      // removeCube(x, y, z)
-    }}
+    onClick={() => props.handleDeleteMush(props.arr)}
     >
       <group rotation={[-Math.PI / 2, 0, 0]} scale={0.2} position={props.position}>
         <mesh
             style={{  display: 'none'}}
 
-        geometry={nodes[`Object_${number}`].geometry} material={materials[`Mushrooms${number}`]} />
-
-        {/* <mesh geometry={nodes.Object_3.geometry} material={materials.Mushrooms3} />
-        <mesh geometry={nodes.Object_4.geometry} material={materials.Mushrooms4} />
-        <mesh geometry={nodes.Object_5.geometry} material={materials.Mushrooms5} />
-        <mesh geometry={nodes.Object_6.geometry} material={materials.Mushrooms6} />
-        <mesh geometry={nodes.Object_7.geometry} material={materials.Mushrooms7} />
-        <mesh geometry={nodes.Object_8.geometry} material={materials.Mushrooms1} /> */}
+        geometry={nodes[`Object_${props.number}`].geometry} material={materials[`Mushrooms${props.number}`]} />
       </group>
     </group>
   )
