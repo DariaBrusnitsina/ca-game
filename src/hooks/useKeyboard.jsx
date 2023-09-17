@@ -55,7 +55,6 @@ export const useKeyboard = () => {
 	}, [])
 
 	useEffect(() => {
-		console.log(actions)
 
 		document.addEventListener('keydown', handleKeyDown)
 		document.addEventListener('keyup', handleKeyUp)

@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
 * {
   box-sizing: border-box;
+  font-family: 'Roboto Mono', monospace;
 }
 
 html,
@@ -69,7 +72,6 @@ body {
   position: absolute;
   top: 5px;
   left: 5px;
-  z-index: 10;
 }
 
 

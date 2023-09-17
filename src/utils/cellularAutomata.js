@@ -2,8 +2,8 @@ let cells = []
 export let forest = []
 export let mushrooms = []
 
-const widthNum = 40
-const heightNum = 40
+const widthNum = 50
+const heightNum = 50
 
   function generateCells(width, height){
     for(let i=0; i<width; i++){

@@ -14,10 +14,7 @@ import { useEffect, useState } from 'react'
 
 function App() {
   const [gameData, setGameData] = useState({})
-  // let gameData = {}
-
-  console.log(JSON.stringify(gameData) !== '{}')
-  console.log(gameData)
+  const [mush, setmush] = useState(0)
 
   function initForest() {
     let localGameData = localStorage.getItem('forest-ca-game')
@@ -33,21 +30,17 @@ function App() {
     }
   }
 
-  function handleResetForestData() {
-    localStorage.removeItem("forest-ca-game")
-    setGameData(() => {})
-    initForest()
-  }
+  // function handleResetForestData() {
+  //   localStorage.removeItem("forest-ca-game")
+  //   setGameData(() => {})
+  //   initForest()
+  // }
 
   function handleDeleteMush(arr) {
     const filteredMushrooms = gameData.mushrooms.filter((m) => m.join('') !== arr.join(''))
-
     let newData = { forest: gameData.forest, mushrooms: filteredMushrooms}
     setGameData(newData)
-    // console.log('gameData', gameData.mushrooms, 'filteredMushrooms', filteredMushrooms)
-
-    // console.log(arr.join(''))
-
+    setmush(mush + 1)
   }
 
   useEffect(() => {
@@ -65,7 +58,7 @@ function App() {
         controls
         loop
       />
-      <button onClick={handleResetForestData}>Restore forest</button>
+      {/* <button onClick={handleResetForestData}>Restore forest</button> */}
 
 
       <Canvas style={{ height: "100vh", width: "100vw", background: 'black'}}>
@@ -80,7 +73,8 @@ function App() {
           <Ground/>
         </Physics>
       </Canvas>
-      <div className='absolute centered coutsor'>+</div>
+      <div style={{ color: 'white'}} className='absolute centered coutsor'>＋ </div>
+      <p style={{ borderRadius: '15px', padding: '10px', position: "absolute", top: "0", right: '10px', zIndex: '10', fontSize: '16px', background: 'white'}}>collected mushrooms: {mush}</p>
    </>
   )
 }
